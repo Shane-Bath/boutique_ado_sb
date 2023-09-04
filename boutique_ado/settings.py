@@ -39,20 +39,19 @@ INSTALLED_APPS = [
     'django.contrib.contenttypes',
     'django.contrib.sessions',
     'django.contrib.messages',
+    'django.contrib.staticfiles',
     'django.contrib.sites',
     'allauth',
     'allauth.account',
     'allauth.socialaccount',
-    'django.contrib.staticfiles',
     'home',
     'products',
     'bag',
     'checkout',
     'profiles',
 
-    #Other
+    # Other
     'crispy_forms',
-
 ]
 
 MIDDLEWARE = [
@@ -74,7 +73,7 @@ TEMPLATES = [
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
         'DIRS': [
             os.path.join(BASE_DIR, 'templates'),
-            os.path.join(BASE_DIR, 'template', 'allauth'),
+            os.path.join(BASE_DIR, 'templates', 'allauth'),
         ],
         'APP_DIRS': True,
         'OPTIONS': {
@@ -110,11 +109,11 @@ EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
 
 ACCOUNT_AUTHENTICATION_METHOD = 'username_email'
 ACCOUNT_EMAIL_REQUIRED = True
-ACCOUNT_EMAIL_REQUIRED = 'mandatory'
-ACCOUNT_SUGNUP_EMAIL_ENTER_TWICE = True
+ACCOUNT_EMAIL_VERIFICATION = 'mandatory'
+ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
-LOGIN_URL = '/account/login/'
-LOGIN_RDIRECT_URL = '/'
+LOGIN_URL = '/accounts/login/'
+LOGIN_REDIRECT_URL = '/'
 
 WSGI_APPLICATION = 'boutique_ado.wsgi.application'
 
