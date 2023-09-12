@@ -15,9 +15,9 @@ import os
 
 import environ
 
-env = environ.Env(
-    DEBUG=(bool, False)
-)
+env = environ.Env()
+environ.Env.read_env()
+
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -177,13 +177,19 @@ STATICFILES_DIRS = (os.path.join(BASE_DIR, 'static'),)
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
 
+DEBUG = env('DEBUG')
+
 #Stripe
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
-STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
-STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
-STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+# STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+# STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+# STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
+STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
+STRIPE_WH_SECRET = env('STRIPE_WH_SECRET')
+
 DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
 
 # Default primary key field type
