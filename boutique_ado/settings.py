@@ -14,10 +14,10 @@ from pathlib import Path
 import os
 import dj_database_url
 
-import environ
+# import environ
 
-env = environ.Env()
-environ.Env.read_env()
+# env = environ.Env()
+# environ.Env.read_env()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -205,22 +205,18 @@ if 'USE_AWS' in os.environ:
     MEDIA_URL = f'https://{AWS_S3_CUSTOM_DOMAIN}/{MEDIAFILES_LOCATION}/'
 
 # This is environs for the stripe key, I am not sure if this is needed now
-DEBUG = env('DEBUG')
+# DEBUG = env('DEBUG')
 
 #Stripe
 FREE_DELIVERY_THRESHOLD = 50
 STANDARD_DELIVERY_PERCENTAGE = 10
 STRIPE_CURRENCY = 'usd'
-# STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
-# STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
-# STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
-STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
-STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
-STRIPE_WH_SECRET = env('STRIPE_WH_SECRET')
-
+STRIPE_PUBLIC_KEY = os.getenv('STRIPE_PUBLIC_KEY', '')
+STRIPE_SECRET_KEY = os.getenv('STRIPE_SECRET_KEY', '')
+STRIPE_WH_SECRET = os.getenv('STRIPE_WH_SECRET', '')
+# STRIPE_PUBLIC_KEY = env('STRIPE_PUBLIC_KEY')
+# STRIPE_SECRET_KEY = env('STRIPE_SECRET_KEY')
+# STRIPE_WH_SECRET = env('STRIPE_WH_SECRET')
 DEFAULT_FROM_EMAIL = 'boutiqueado@example.com'
 
-# Default primary key field type
-# https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
-DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
