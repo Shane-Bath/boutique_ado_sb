@@ -34,7 +34,7 @@ DEBUG = 'DEVELOPMENT' in os.environ
 
 ALLOWED_HOSTS = [
     '8000-shane-bath-boutique-ado--9vp4niilu3.us2.codeanyapp.com',
-    'https://git.heroku.com/shane-bath-boutique-ado.git'
+    'https://shane-bath-boutique-ado-59e41b878dce.herokuapp.com/'
 ]
 
 
